@@ -5,10 +5,20 @@ class Transaction():
         self.items = dict()
     
     def add_item(self, name, qty, price):
-        pass
+        self.items[name] = [qty, price]
+
+        print('\nADD ITEM\'S')
+        header = ['Nama Barang', 'Jumlah Barang', 'Harga Barang']
+        table = [[name, str(self.items[name][0]), str(self.items[name][1])]]
+        print(tabulate(table, header, tablefmt="github"))
 
     def update_item_name(self, name, name_update):
-        pass
+        print('\nUPDATE ITEM NAME')
+        if name in self.items.keys():
+            self.items[name_update] = self.items.pop(name)            
+            print(f'{name} updated to {name_update}')
+        else:
+            raise Exception('Nama item tidak ada')  
 
     def update_item_qty(self, name, qty_update):
         pass
@@ -27,4 +37,3 @@ class Transaction():
 
     def total_price(self):
         pass
-    
