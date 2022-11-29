@@ -97,6 +97,15 @@ class Transaction():
             raise Exception('Nama item tidak ada')
 
     def delete_item(self, name):
+        """
+        deleting 1 item from dictionary
+
+        Args:
+            name (str): name of the item to be deleted
+
+        Raises:
+            Exception: name is not in the items
+        """
         print(f'\nDELETING {name}')
         if name in self.items.keys():
             del self.items[name]
@@ -104,6 +113,9 @@ class Transaction():
             raise Exception('Nama item tidak ada')
 
     def reset_transaction(self):
+        """
+        deleting all the items in dictionary
+        """
         print('\nDELETE ALL ITEM\'S')
         self.items.clear()
 
