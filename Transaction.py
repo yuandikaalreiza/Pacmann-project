@@ -37,13 +37,43 @@ class Transaction():
             raise Exception('Nama item tidak ada')
 
     def delete_item(self, name):
-        pass
+        print(f'\nDELETING {name}')
+        if name in self.items.keys():
+            del self.items[name]
+        else:
+            raise Exception('Nama item tidak ada')
 
     def reset_transaction(self):
-        pass
+        print('\nDELETE ALL ITEM\'S')
+        self.items.clear()
 
     def check_order(self):
-        pass
+        print('\nCHECKING ORDER\'S')
+        header = ['Nama Barang', 'Jumlah Barang', 'Harga Barang', 'Total Harga']
+        table = []
+        for key, value in self.items.items():
+
+            table.append([key, value[0], value[1], value[0]*value[1]])
+        print(tabulate(table, header, tablefmt="github"))
 
     def total_price(self):
-        pass
+        print('\nCOUNTING TOTAL PRICE\'S')
+        price = 0
+        for key, value in self.items.items():
+            price +=value[0]*value[1]
+            
+        print(f'Total Harga : {price}')
+        if price >  500000:
+            price = price-(price*0.1)
+            print(f'Selamat, anda mendapatkan diskon sebesar 10%')
+            print(f'Sehinggal Total harga : {price}')
+        elif price > 300000:
+            price = price-(price*0.08)
+            print(f'Selamat, anda mendapatkan diskon sebesar 8%')
+            print(f'Sehinggal Total harga : {price}')
+        elif price > 200000:
+            price = price-(price*0.05)
+            print(f'Selamat, anda mendapatkan diskon sebesar 5%')
+            print(f'Sehinggal Total harga : {price}')
+        else:
+            pass
