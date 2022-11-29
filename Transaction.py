@@ -21,7 +21,7 @@ class Transaction():
         """
         try:
             qty = int(qty)
-            price = int(qty)
+            price = int(price)
         except:
             raise Exception('Masukkan angka  pada kuantiti dan harga')
         else:
