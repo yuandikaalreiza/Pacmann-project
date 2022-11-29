@@ -2,17 +2,38 @@ from tabulate import tabulate
 
 class Transaction():
     def __init__(self):
+        """
+        construct necesary attributes for Transaction class
+        """
         self.items = dict()
     
     def add_item(self, name, qty, price):
-        self.items[name] = [qty, price]
+        """
+        adding item to dictionary
 
-        print('\nADD ITEM\'S')
-        header = ['Nama Barang', 'Jumlah Barang', 'Harga Barang']
-        table = [[name, str(self.items[name][0]), str(self.items[name][1])]]
-        print(tabulate(table, header, tablefmt="github"))
+        Args:
+            name (str): string for name of the item
+            qty (int): decimal quantity of the item
+            price (int): decimal price of the item
+
+        Raises:
+            Exception: ValueError if not input int in qty and price
+        """
+        try:
+            qty = int(qty)
+            price = int(qty)
+        except:
+            raise Exception('Masukkan angka  pada kuantiti dan harga')
+        else:
+            self.items[name] = [qty, price]
+            header = ['Nama Barang', 'Jumlah Barang', 'Harga Barang']
+            table = [[name, str(self.items[name][0]), str(self.items[name][1])]]
+            
+            print('\nADD ITEM\'S')
+            print(tabulate(table, header, tablefmt="github"))
 
     def update_item_name(self, name, name_update):
+        
         print('\nUPDATE ITEM NAME')
         if name in self.items.keys():
             self.items[name_update] = self.items.pop(name)            
@@ -77,3 +98,4 @@ class Transaction():
             print(f'Sehinggal Total harga : {price}')
         else:
             pass
+
