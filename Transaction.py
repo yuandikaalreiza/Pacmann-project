@@ -21,10 +21,20 @@ class Transaction():
             raise Exception('Nama item tidak ada')  
 
     def update_item_qty(self, name, qty_update):
-        pass
+        print('\nUPDATE ITEM QUANTITY')
+        if name in self.items.keys():
+            self.items[name][0] = qty_update
+            print(f'{name} quantity is updated to {qty_update}')
+        else:
+            raise Exception('Nama item tidak ada')  
 
     def update_item_price(self, name, price_update):
-        pass
+        print('\nUPDATE ITEM PRICE')
+        if name in self.items.keys():
+            self.items[name][1] = price_update
+            print(f'{name} price is updated to {price_update}')
+        else:
+            raise Exception('Nama item tidak ada')
 
     def delete_item(self, name):
         pass
