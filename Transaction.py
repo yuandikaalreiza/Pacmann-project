@@ -33,6 +33,16 @@ class Transaction():
             print(tabulate(table, header, tablefmt="github"))
 
     def update_item_name(self, name, name_update):
+        """
+        Updating item name to dictionary
+
+        Args:
+            name (str): name of the item to be changed
+            name_update (st): new item name
+
+        Raises:
+            Exception: if name is not in the items
+        """
         
         print('\nUPDATE ITEM NAME')
         if name in self.items.keys():
