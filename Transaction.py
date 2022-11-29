@@ -43,7 +43,6 @@ class Transaction():
         Raises:
             Exception: if name is not in the items
         """
-        
         print('\nUPDATE ITEM NAME')
         if name in self.items.keys():
             self.items[name_update] = self.items.pop(name)            
@@ -52,10 +51,24 @@ class Transaction():
             raise Exception('Nama item tidak ada')  
 
     def update_item_qty(self, name, qty_update):
+        """Updating item quantity  to dictionary
+
+        Args:
+            name (str): name of the item to be changged
+            qty_update (int): new iten quantity
+
+        Raises:
+            Exception: if name is not in the items or qty is not integer
+        """
         print('\nUPDATE ITEM QUANTITY')
         if name in self.items.keys():
-            self.items[name][0] = qty_update
-            print(f'{name} quantity is updated to {qty_update}')
+            try:
+                qty_update = int(qty_update)
+            except:
+                raise Exception('Masukkan angka pada kuantiti')
+            else:
+                self.items[name][0] = qty_update
+                print(f'{name} quantity is updated to {qty_update}')
         else:
             raise Exception('Nama item tidak ada')  
 
