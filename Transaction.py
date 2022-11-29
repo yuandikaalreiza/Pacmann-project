@@ -73,10 +73,26 @@ class Transaction():
             raise Exception('Nama item tidak ada')  
 
     def update_item_price(self, name, price_update):
+        """
+        Updating item price to dictionary
+
+        Args:
+            name (str): name of the item to be changed
+            price_update (int): new item price
+
+        Raises:
+            Exception: name is not in the items
+            Exception: qty is not integer
+        """
         print('\nUPDATE ITEM PRICE')
         if name in self.items.keys():
-            self.items[name][1] = price_update
-            print(f'{name} price is updated to {price_update}')
+            try:
+                price_update = int(price_update)
+            except:
+                raise Exception('Masukkan angka pada harga')
+            else:
+                self.items[name][1] = price_update
+                print(f'{name} price is updated to {price_update}')
         else:
             raise Exception('Nama item tidak ada')
 
