@@ -131,7 +131,12 @@ class Transaction():
         header = ['Nama Barang', 'Jumlah Barang', 'Harga Barang', 'Total Harga']
         table = []
         for key, value in self.items.items():
-
+            if key not in self.catalog.keys():
+                print(f'Terdapat kesalahan pada input, {key} tidak tersedia pada katalog')
+                continue
+            if value[1] != self.catalog[key]:
+                print(f'Terdapat kesalahan pada input, {key} seharusnya memiliki harga {value[1]}')
+                continue
             table.append([key, value[0], value[1], value[0]*value[1]])
         print(tabulate(table, header, tablefmt="github"))
 
