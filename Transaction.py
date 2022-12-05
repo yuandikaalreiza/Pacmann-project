@@ -7,11 +7,11 @@ class Transaction():
         """
         self.items = dict()
         self.catalog = {
-            'ayam goreng': 20000,
-            'pasta gigi': 15000,
-            'terpal' : 50000,
-            'mi instan' : 3000,
-            'mainan mobil': 200000
+            'Ayam Goreng': 20000,
+            'Pasta Gigi': 15000,
+            'Terpal' : 50000,
+            'Mi Instan' : 3000,
+            'Mainan Mobil': 200000
         }
     
     def add_item(self, name, qty, price):
